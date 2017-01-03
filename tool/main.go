@@ -27,7 +27,7 @@ func main() {
 	filepath.Walk(builddir, walkpath)
 	// fmt.Println(imports, modules)
 
-	var istr string = "	\"github.com/rainkid/dogo\"\n"
+	var istr string = "	\"github.com/hxangel/dogo\"\n"
 	for _, v := range imports {
 		istr += fmt.Sprintf("	%s \"%s/%s\"\n", v, modulesName, v)
 	}
