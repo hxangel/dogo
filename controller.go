@@ -30,7 +30,7 @@ type Controller struct {
 func (c *Controller) Construct(module, controller, action string) {
 	c.ModuleName, c.ControllerName, c.ActionName = module, controller, action
 	c.ViewPath = "src/views"
-	c.Tpl = fmt.Sprintf("%s/%s/%s", c.ModuleName, c.ControllerName, strings.ToLower(c.ActionName))
+	c.Tpl = fmt.Sprintf("%s_%s_%s", c.ModuleName, c.ControllerName, strings.ToLower(c.ActionName))
 	c.TplExt = "html"
 	return
 }
@@ -96,6 +96,7 @@ func (c *Controller) Render() {
 			return
 		}
 		t, err := template.New("content").Funcs(c.TplFuncs).ParseFiles(c.Layouts...)
+		fmt.Println(t)
 		if err != nil {
 			c.Error(err)
 			return
